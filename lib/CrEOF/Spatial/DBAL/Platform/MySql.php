@@ -50,7 +50,7 @@ class MySql extends AbstractPlatform
      *
      * @var int|null
      */
-    public static $srid;
+    public static $srid = 4326;
 
     /**
      * Convert to database value.
@@ -62,9 +62,7 @@ class MySql extends AbstractPlatform
      */
     public function convertToDatabaseValueSql(AbstractSpatialType $type, $sqlExpr)
     {
-        return $type instanceof GeographyType && is_int(self::$srid)
-            ? sprintf('ST_GeomFromText(%s, %d)', $sqlExpr, self::$srid)
-            : sprintf('ST_GeomFromText(%s)', $sqlExpr);
+        return sprintf('ST_GeomFromText(%s, %d, "%s")', $sqlExpr, self::$srid, self::AXIS_ORDER_OPTION);
     }
 
     /**
@@ -77,9 +75,7 @@ class MySql extends AbstractPlatform
      */
     public function convertToPhpValueSql(AbstractSpatialType $type, $sqlExpr)
     {
-        return $type instanceof GeographyType
-            ? sprintf('ST_AsBinary(%s, "%s")', $sqlExpr, self::AXIS_ORDER_OPTION)
-            : sprintf('ST_AsBinary(%s)', $sqlExpr);
+        return sprintf('ST_AsBinary(%s, "%s")', $sqlExpr, self::AXIS_ORDER_OPTION);
     }
 
     /**
