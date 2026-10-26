@@ -42,8 +42,6 @@ use Doctrine\ORM\Mapping\Table;
 class NoHintGeometryEntity
 {
     /**
-     * @var mixed
-     *
      * @Column(type="geometry", nullable=true)
      */
     protected $geometry;
@@ -59,8 +57,6 @@ class NoHintGeometryEntity
 
     /**
      * Get geometry.
-     *
-     * @return mixed
      */
     public function getGeometry()
     {

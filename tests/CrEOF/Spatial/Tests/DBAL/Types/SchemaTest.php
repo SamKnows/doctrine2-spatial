@@ -112,11 +112,10 @@ class SchemaTest extends OrmTestCase
     /**
      * All class metadata getter.
      *
+     * @return ClassMetadata[]
      * @throws DBALException                when connection failed
      * @throws ORMException                 when cache is not set
      * @throws UnsupportedPlatformException when platform is unsupported
-     *
-     * @return ClassMetadata[]
      */
     private function getAllClassMetadata()
     {

@@ -37,13 +37,14 @@ use CrEOF\Spatial\PHP\Types\Geography\GeographyInterface;
 class MySql extends AbstractPlatform
 {
     /**
-     * For Geographic types MySQL follows the WKT specifications and returns (latitude,longitude) while (x,y) / (longitude,latitude) is expected.
+     * For Geographic types MySQL follows the WKT specifications and returns (latitude,longitude),
+     * while (x,y) / (longitude,latitude) is expected.
      *
      * Using the following option the preferred axis-order can be indicated.
      *
      * @var string
      */
-    const AXIS_ORDER_OPTION = 'axis-order=long-lat';
+    public const AXIS_ORDER_OPTION = 'axis-order=long-lat';
 
     /**
      * Optionally a SRID can be set to be used for Geographic types.

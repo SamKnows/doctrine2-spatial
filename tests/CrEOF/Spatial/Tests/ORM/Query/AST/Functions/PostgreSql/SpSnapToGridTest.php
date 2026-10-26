@@ -148,9 +148,9 @@ class STSnapToGridTest extends OrmTestCase
         $this->getEntityManager()->clear();
 
         $query = $this->getEntityManager()->createQuery(
-        // phpcs:disable Generic.Files.LineLength.MaxExceeded
+            // phpcs:disable Generic.Files.LineLength.MaxExceeded
             'SELECT ST_AsText(PgSql_SnapToGrid(p.point, 5.55, 6.25, 0.5, 0.5)) FROM CrEOF\Spatial\Tests\Fixtures\PointEntity p'
-        // phpcs:enable
+            // phpcs:enable
         );
         $result = $query->getResult();
 
@@ -181,9 +181,9 @@ class STSnapToGridTest extends OrmTestCase
         $this->getEntityManager()->clear();
 
         $query = $this->getEntityManager()->createQuery(
-        // phpcs:disable Generic.Files.LineLength.MaxExceeded
+            // phpcs:disable Generic.Files.LineLength.MaxExceeded
             'SELECT ST_AsText(PgSql_SnapToGrid(p.point, p.point, 0.005, 0.025, 0.5, 0.01)) FROM CrEOF\Spatial\Tests\Fixtures\PointEntity p'
-        // phpcs:enable
+            // phpcs:enable
         );
         $result = $query->getResult();
 

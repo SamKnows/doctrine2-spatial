@@ -145,7 +145,6 @@ use CrEOF\Spatial\Tests\Fixtures\NoHintGeometryEntity;
 use CrEOF\Spatial\Tests\Fixtures\PointEntity;
 use CrEOF\Spatial\Tests\Fixtures\PolygonEntity;
 use Doctrine\Common\Cache\ArrayCache;
-use Doctrine\Common\Persistence\Mapping\MappingException;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
@@ -159,6 +158,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\ToolsException;
+use Doctrine\Persistence\Mapping\MappingException;
 use Exception;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
@@ -446,10 +446,9 @@ abstract class OrmTestCase extends TestCase
     /**
      * Establish the connection if it is not already done, then returns it.
      *
+     * @return Connection
      * @throws DBALException                when connection is not successful
      * @throws UnsupportedPlatformException when platform is unsupported
-     *
-     * @return Connection
      */
     protected static function getConnection()
     {
@@ -480,9 +479,8 @@ abstract class OrmTestCase extends TestCase
     /**
      * Return connection parameters.
      *
-     * @throws DBALException when connection is not successful
-     *
      * @return array
+     * @throws DBALException when connection is not successful
      */
     protected static function getConnectionParameters()
     {
@@ -515,11 +513,10 @@ abstract class OrmTestCase extends TestCase
     /**
      * Return the entity manager.
      *
+     * @return EntityManager
      * @throws DBALException                when connection is not successful
      * @throws ORMException                 when cache is not set
      * @throws UnsupportedPlatformException when platform is unsupported
-     *
-     * @return EntityManager
      */
     protected function getEntityManager()
     {
@@ -547,10 +544,9 @@ abstract class OrmTestCase extends TestCase
     /**
      * Get platform.
      *
+     * @return AbstractPlatform
      * @throws DBALException                this can happen when database or credentials are not set
      * @throws UnsupportedPlatformException this should not happen
-     *
-     * @return AbstractPlatform
      */
     protected function getPlatform()
     {
@@ -579,11 +575,10 @@ abstract class OrmTestCase extends TestCase
     /**
      * Return the schema tool.
      *
+     * @return SchemaTool
      * @throws DBALException                this can happen when database or credentials are not set
      * @throws ORMException                 this can happen when database or credentials are not set
      * @throws UnsupportedPlatformException this should not happen
-     *
-     * @return SchemaTool
      */
     protected function getSchemaTool()
     {

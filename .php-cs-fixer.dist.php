@@ -29,7 +29,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 EOF;
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
 //    ->setCacheFile(__DIR__.'/.php_cs.cache')
     ->setRules([
         '@DoctrineAnnotation' => true,
@@ -39,6 +39,10 @@ return PhpCsFixer\Config::create()
         '@PHP70Migration' => true,
         '@PHP71Migration' => true,
         '@PHP73Migration' => true,
+        // Preserve the existing comment and import style during the formatter migration.
+        'phpdoc_separation' => false,
+        'single_line_comment_spacing' => false,
+        'global_namespace_import' => false,
 //        'strict_param' => true,
         'array_syntax' => ['syntax' => 'short'],
         'dir_constant' => true,
@@ -71,7 +75,7 @@ return PhpCsFixer\Config::create()
                 'method_public_static', 'method_protected_static', 'method_private_static', 'method_static',
                 'method_public', 'method_protected', 'method_private', 'method', 'magic'
             ],
-            'sortAlgorithm' => 'alpha'
+            'sort_algorithm' => 'alpha'
         ],
         'php_unit_test_case_static_method_calls' => true,
         'single_line_throw' => false
