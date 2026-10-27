@@ -3,6 +3,14 @@ Doctrine2 multi-platform support for spatial types and functions.
 Currently MySQL and PostgreSQL with PostGIS are supported. 
 Could potentially add support for other platforms if an interest is expressed.
 
+## SamKnows PHP 8.2 compatibility branch
+
+The `CDEV-2150-php82-compat` branch targets PHP 8.2.35 or newer, Doctrine ORM 2.10+, and DBAL 2.13. It is separate from `master`; existing consumers of `dev-master` keep their current implementation.
+
+A consumer can select this branch with `"samknows/doctrine2-spatial": "dev-CDEV-2150-php82-compat"`. Commit the consumer's Composer lockfile after reviewing the selected source commit so installation uses that reviewed revision.
+
+The fork's MySQL SRID 4326 and `axis-order=long-lat` conversion behavior is preserved. The PHP compatibility work does not change coordinate calculations or spatial SQL generation. The legacy upstream MySQL suite has existing failures around Cartesian/SRID assumptions; review the baseline comparison alongside focused geometry and database checks. PostgreSQL/PostGIS integration still requires separate qualification.
+
 ## Current status
 [![Build Status](https://travis-ci.org/Alexandre-T/doctrine2-spatial.svg?branch=master)](https://travis-ci.org/Alexandre-T/doctrine2-spatial)
 [![Code Climate](https://codeclimate.com/github/Alexandre-T/doctrine2-spatial/badges/gpa.svg)](https://codeclimate.com/github/Alexandre-T/doctrine2-spatial)
@@ -38,13 +46,11 @@ I would like to release the 2.0.0 version at the end of March.
 Compatibility
 -------------
 ### PHP
-This doctrine extension is compatible with PHP 7.2, 7.3 and 7.4
+This compatibility branch requires PHP 8.2.35 or newer.
 Security fixes will follow the [PHP Roadmap](https://www.php.net/supported-versions.php).
 
 ### Doctrine dev version
-This extension should be used with the actual doctrine stable version: 2.7
-Continuous integration tests libraries with 2.8.x-dev version. We **ONLY** try to stay compatible with this version, 
-currently. 
+This branch uses Doctrine ORM 2.10 or newer within the 2.x series, Doctrine Persistence 2.x/3.x, and DBAL 2.13. Consumers must migrate legacy `Doctrine\Common\Persistence` imports to `Doctrine\Persistence`.
 
 ### MySQL 5.7 and 8.0
 A lot of functions change their names between this two versions. The [MySQL 5.7 deprecated functions](https://stackoverflow.com/questions/60377271/why-some-spatial-functions-does-not-exists-on-my-mysql-server)

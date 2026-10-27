@@ -59,9 +59,8 @@ abstract class OrmMockTestCase extends TestCase
     /**
      * Return the mocked connection.
      *
-     * @throws DBALException when connection is not successful
-     *
      * @return Connection
+     * @throws DBALException when connection is not successful
      */
     protected function getMockConnection()
     {
@@ -88,10 +87,9 @@ abstract class OrmMockTestCase extends TestCase
     /**
      * Get the mocked entity manager.
      *
-     * @throws DBALException When connection is not successful
-     * @throws ORMException  won't happen because Metadata cache is set
-     *
      * @return EntityManagerInterface a mocked entity manager
+     * @throws DBALException          When connection is not successful
+     * @throws ORMException           won't happen because Metadata cache is set
      */
     protected function getMockEntityManager()
     {

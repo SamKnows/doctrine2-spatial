@@ -121,9 +121,8 @@ abstract class AbstractPoint extends AbstractGeometry
      *
      * @param mixed $latitude the new latitude of point
      *
-     * @throws InvalidValueException when latitude is not valid
-     *
      * @return self
+     * @throws InvalidValueException when latitude is not valid
      */
     public function setLatitude($latitude)
     {
@@ -135,9 +134,8 @@ abstract class AbstractPoint extends AbstractGeometry
      *
      * @param mixed $longitude the new longitude
      *
-     * @throws InvalidValueException when longitude is not valid
-     *
      * @return self
+     * @throws InvalidValueException when longitude is not valid
      */
     public function setLongitude($longitude)
     {
@@ -149,9 +147,8 @@ abstract class AbstractPoint extends AbstractGeometry
      *
      * @param mixed $x the new X
      *
-     * @throws InvalidValueException when x is not valid
-     *
      * @return self
+     * @throws InvalidValueException when x is not valid
      */
     public function setX($x)
     {
@@ -173,9 +170,8 @@ abstract class AbstractPoint extends AbstractGeometry
      *
      * @param mixed $y the new Y value
      *
-     * @throws InvalidValueException when Y is invalid, not in valid range
-     *
      * @return self
+     * @throws InvalidValueException when Y is invalid, not in valid range
      */
     public function setY($y)
     {
@@ -225,9 +221,8 @@ abstract class AbstractPoint extends AbstractGeometry
      *
      * @param array $argv list of arguments
      *
-     * @throws InvalidValueException when an argument is not valid
-     *
      * @return array
+     * @throws InvalidValueException when an argument is not valid
      */
     protected function validateArguments(array $argv = null)
     {

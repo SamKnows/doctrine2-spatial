@@ -67,9 +67,8 @@ abstract class AbstractSpatialType extends Type
      * @param GeometryInterface $value    the value to convert
      * @param AbstractPlatform  $platform the database platform
      *
-     * @throws InvalidValueException when value is not of type Geometry interface
-     *
      * @return string|null
+     * @throws InvalidValueException when value is not of type Geometry interface
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -90,9 +89,8 @@ abstract class AbstractSpatialType extends Type
      * @param string           $sqlExpr  the SQL expression
      * @param AbstractPlatform $platform the database platform
      *
-     * @throws UnsupportedPlatformException when platform is unsupported
-     *
      * @return string
+     * @throws UnsupportedPlatformException when platform is unsupported
      */
     public function convertToDatabaseValueSql($sqlExpr, AbstractPlatform $platform)
     {
@@ -107,9 +105,8 @@ abstract class AbstractSpatialType extends Type
      * @param resource|string|null $value    value to convert to PHP
      * @param AbstractPlatform     $platform platform database
      *
-     * @throws UnsupportedPlatformException when platform is unsupported
-     *
      * @return GeometryInterface|null
+     * @throws UnsupportedPlatformException when platform is unsupported
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -132,9 +129,8 @@ abstract class AbstractSpatialType extends Type
      * @param string           $sqlExpr  SQL expression
      * @param AbstractPlatform $platform platform database
      *
-     * @throws UnsupportedPlatformException when platform is unsupported
-     *
      * @return string
+     * @throws UnsupportedPlatformException when platform is unsupported
      */
     public function convertToPhpValueSql($sqlExpr, $platform)
     {
@@ -146,9 +142,8 @@ abstract class AbstractSpatialType extends Type
      *
      * @param AbstractPlatform $platform platform database
      *
-     * @throws UnsupportedPlatformException when platform is unsupported
-     *
      * @return array
+     * @throws UnsupportedPlatformException when platform is unsupported
      */
     public function getMappedDatabaseTypes(AbstractPlatform $platform)
     {
@@ -171,9 +166,8 @@ abstract class AbstractSpatialType extends Type
      * @param array            $fieldDeclaration the field declaration
      * @param AbstractPlatform $platform         database platform
      *
-     * @throws UnsupportedPlatformException when platform is unsupported
-     *
      * @return string
+     * @throws UnsupportedPlatformException when platform is unsupported
      */
     public function getSqlDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
@@ -231,9 +225,8 @@ abstract class AbstractSpatialType extends Type
      *
      * @param AbstractPlatform $platform the database platform
      *
-     * @throws UnsupportedPlatformException when platform is not declared in constant
-     *
      * @return PlatformInterface
+     * @throws UnsupportedPlatformException when platform is not declared in constant
      */
     private function getSpatialPlatform(AbstractPlatform $platform)
     {

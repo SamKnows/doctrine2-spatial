@@ -68,9 +68,8 @@ class GeometryWalker extends SqlWalker
      *
      * @param SelectExpression $selectExpression Select expression AST node
      *
+     * @return string         the SQL
      * @throws QueryException when error happend during walking into select expression
-     *
-     * @return string the SQL
      */
     public function walkSelectExpression($selectExpression)
     {

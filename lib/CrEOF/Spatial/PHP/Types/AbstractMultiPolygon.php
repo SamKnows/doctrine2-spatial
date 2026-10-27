@@ -59,9 +59,8 @@ abstract class AbstractMultiPolygon extends AbstractGeometry
      *
      * @param AbstractPolygon|array[] $polygon polygon to add
      *
-     * @throws InvalidValueException when polygon is invalid
-     *
      * @return self
+     * @throws InvalidValueException when polygon is invalid
      */
     public function addPolygon($polygon)
     {
@@ -120,9 +119,8 @@ abstract class AbstractMultiPolygon extends AbstractGeometry
      *
      * @param AbstractPolygon[] $polygons polygons to set
      *
-     * @throws InvalidValueException when a polygon is invalid
-     *
      * @return self
+     * @throws InvalidValueException when a polygon is invalid
      */
     public function setPolygons(array $polygons)
     {

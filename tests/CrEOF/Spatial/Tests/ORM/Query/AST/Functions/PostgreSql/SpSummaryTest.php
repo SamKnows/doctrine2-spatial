@@ -35,10 +35,10 @@ use CrEOF\Spatial\PHP\Types\Geometry\Polygon as GeometryPolygon;
 use CrEOF\Spatial\Tests\Fixtures\GeographyEntity;
 use CrEOF\Spatial\Tests\Fixtures\GeometryEntity;
 use CrEOF\Spatial\Tests\OrmTestCase;
-use Doctrine\Common\Persistence\Mapping\MappingException;
 use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\Persistence\Mapping\MappingException;
 
 /**
  * SP_Summary DQL function tests.
@@ -115,11 +115,11 @@ class SpSummaryTest extends OrmTestCase
 
         static::assertCount(3, $result);
         static::assertEquals($point, $result[0][0]);
-        static::assertRegExp('/^Point\[.*G.*\]/', $result[0][1]);
+        static::assertMatchesRegularExpression('/^Point\[.*G.*\]/', $result[0][1]);
         static::assertEquals($linestring, $result[1][0]);
-        static::assertRegExp('/^LineString\[.*G.*\]/', $result[1][1]);
+        static::assertMatchesRegularExpression('/^LineString\[.*G.*\]/', $result[1][1]);
         static::assertEquals($polygon, $result[2][0]);
-        static::assertRegExp('/^Polygon\[.*G.*\]/', $result[2][1]);
+        static::assertMatchesRegularExpression('/^Polygon\[.*G.*\]/', $result[2][1]);
     }
 
     /**
@@ -167,10 +167,10 @@ class SpSummaryTest extends OrmTestCase
 
         static::assertCount(3, $result);
         static::assertEquals($point, $result[0][0]);
-        static::assertRegExp('/^Point\[[^G]*\]/', $result[0][1]);
+        static::assertMatchesRegularExpression('/^Point\[[^G]*\]/', $result[0][1]);
         static::assertEquals($linestring, $result[1][0]);
-        static::assertRegExp('/^LineString\[[^G]*\]/', $result[1][1]);
+        static::assertMatchesRegularExpression('/^LineString\[[^G]*\]/', $result[1][1]);
         static::assertEquals($polygon, $result[2][0]);
-        static::assertRegExp('/^Polygon\[[^G]*\]/', $result[2][1]);
+        static::assertMatchesRegularExpression('/^Polygon\[[^G]*\]/', $result[2][1]);
     }
 }

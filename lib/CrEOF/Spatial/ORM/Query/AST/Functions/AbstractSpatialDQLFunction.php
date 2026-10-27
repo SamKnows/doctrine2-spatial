@@ -125,13 +125,6 @@ abstract class AbstractSpatialDQLFunction extends FunctionNode
     }
 
     /**
-     * Function SQL name getter.
-     *
-     * @since 2.0 This function replace the protected property functionName.
-     */
-    abstract protected function getFunctionName(): string;
-
-    /**
      * Geometry expressions getter.
      *
      * @since 2.0 This function replace the protected property geomExpr which is now private.
@@ -142,6 +135,31 @@ abstract class AbstractSpatialDQLFunction extends FunctionNode
     {
         return $this->geometryExpression;
     }
+
+    /**
+     * Test that the platform supports spatial type.
+     *
+     * @param AbstractPlatform $platform database spatial
+     *
+     * @throws UnsupportedPlatformException when platform is unsupported
+     */
+    protected function validatePlatform(AbstractPlatform $platform): void
+    {
+        $platformName = $platform->getName();
+
+        if (!in_array($platformName, $this->getPlatforms())) {
+            throw new UnsupportedPlatformException(
+                sprintf('DBAL platform "%s" is not currently supported.', $platformName)
+            );
+        }
+    }
+
+    /**
+     * Function SQL name getter.
+     *
+     * @since 2.0 This function replace the protected property functionName.
+     */
+    abstract protected function getFunctionName(): string;
 
     /**
      * Maximum number of parameter for the spatial function.
@@ -169,22 +187,4 @@ abstract class AbstractSpatialDQLFunction extends FunctionNode
      * @return string[] a non-empty array of accepted platforms
      */
     abstract protected function getPlatforms(): array;
-
-    /**
-     * Test that the platform supports spatial type.
-     *
-     * @param AbstractPlatform $platform database spatial
-     *
-     * @throws UnsupportedPlatformException when platform is unsupported
-     */
-    protected function validatePlatform(AbstractPlatform $platform): void
-    {
-        $platformName = $platform->getName();
-
-        if (!in_array($platformName, $this->getPlatforms())) {
-            throw new UnsupportedPlatformException(
-                sprintf('DBAL platform "%s" is not currently supported.', $platformName)
-            );
-        }
-    }
 }

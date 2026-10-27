@@ -233,9 +233,6 @@
       must indeted by $indent spaces.
     -->
     <rule ref="PEAR.Classes.ClassDeclaration">
-        <properties>
-            <property name="indent" value="4"/>
-        </properties>
     </rule>
 
     <!--

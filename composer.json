@@ -2,7 +2,19 @@
     "name": "samknows/doctrine2-spatial",
     "type": "library",
     "description": "Doctrine2 multi-platform support for spatial types and functions",
-    "keywords": ["orm", "dbal", "database", "postgresql", "mysql", "opengis", "postgis", "gis", "spatial", "geometry", "geography"],
+    "keywords": [
+        "orm",
+        "dbal",
+        "database",
+        "postgresql",
+        "mysql",
+        "opengis",
+        "postgis",
+        "gis",
+        "spatial",
+        "geometry",
+        "geography"
+    ],
     "authors": [
         {
             "name": "Derek Lambert",
@@ -15,31 +27,35 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2",
-        "ext-json": "*",
-        "ext-mbstring": "*",
+        "php": "^8.2.35",
         "creof/geo-parser": "~2.0",
-        "creof/wkt-parser": "~2.0",
         "creof/wkb-parser": "~2.0",
-        "doctrine/orm": "^2.7.0"
+        "creof/wkt-parser": "~2.0",
+        "doctrine/dbal": "^2.13",
+        "doctrine/orm": "^2.10",
+        "doctrine/persistence": "^2.2 || ^3.0",
+        "ext-json": "*",
+        "ext-mbstring": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "*",
-        "phpunit/phpcov": "*",
-        "php-coveralls/php-coveralls": "~1.0",
-        "squizlabs/php_codesniffer": "3.*"
+        "doctrine/annotations": "^1.14",
+        "doctrine/cache": "^1.13",
+        "php-coveralls/php-coveralls": "^2.7",
+        "php-cs-fixer/shim": "~3.25.1",
+        "phpmd/phpmd": "^2.15",
+        "phpunit/phpcov": "^8.2",
+        "phpunit/phpunit": "^9.6",
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "scripts": {
         "check-quality-code": [
-            "php-cs-fixer fix --dry-run --config=.php_cs.dist --allow-risky=yes -vvv",
+            "php-cs-fixer fix --dry-run --config=.php-cs-fixer.dist.php --allow-risky=yes -vvv",
             "phpcs --standard=phpcs.xml.dist -s",
             "phpmd lib text ./phpmd.lib.xml",
             "phpmd tests text ./phpmd.test.xml --exclude OrmTestCase.php"
         ],
         "phpcs": "phpcs --standard=phpcs.xml.dist -s",
-        "phpcsfixer": "php-cs-fixer --config=.php_cs.dist fix --allow-risky=yes -vvv",
+        "phpcsfixer": "php-cs-fixer --config=.php-cs-fixer.dist.php fix --allow-risky=yes -vvv",
         "phpmd": [
             "phpmd lib text ./phpmd.lib.xml",
             "phpmd tests text ./phpmd.test.xml --exclude OrmTestCase.php"

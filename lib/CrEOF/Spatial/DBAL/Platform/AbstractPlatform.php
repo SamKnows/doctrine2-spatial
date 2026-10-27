@@ -46,9 +46,8 @@ abstract class AbstractPlatform implements PlatformInterface
      * @param AbstractSpatialType $type    The abstract spatial type
      * @param string              $sqlExpr the SQL expression
      *
-     * @throws InvalidValueException when the provided type is not supported
-     *
      * @return GeometryInterface
+     * @throws InvalidValueException when the provided type is not supported
      */
     public function convertBinaryToPhpValue(AbstractSpatialType $type, $sqlExpr)
     {
@@ -63,9 +62,8 @@ abstract class AbstractPlatform implements PlatformInterface
      * @param AbstractSpatialType $type    The abstract spatial type
      * @param string              $sqlExpr the SQL expression
      *
-     * @throws InvalidValueException when the provided type is not supported
-     *
      * @return GeometryInterface
+     * @throws InvalidValueException when the provided type is not supported
      */
     public function convertStringToPhpValue(AbstractSpatialType $type, $sqlExpr)
     {
@@ -116,9 +114,8 @@ abstract class AbstractPlatform implements PlatformInterface
      * @param AbstractSpatialType $type  The type spatial type
      * @param array               $value The value of the spatial object
      *
-     * @throws InvalidValueException when the provided type is not supported
-     *
      * @return GeometryInterface
+     * @throws InvalidValueException when the provided type is not supported
      */
     private function newObjectFromValue(AbstractSpatialType $type, $value)
     {
